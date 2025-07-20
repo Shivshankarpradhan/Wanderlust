@@ -122,4 +122,3 @@ app.use((err , req , res ,next) =>{
 app.listen(8080 ,()=>{
   console.log("Sever is listening to port 8080");
 });
-

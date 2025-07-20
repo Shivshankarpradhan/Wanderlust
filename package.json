@@ -1,8 +1,5 @@
 {
-  "engines": {
-    "node": "v20.9.0"
-  },
-  "name": "airbnb",
+  "name": "wanderlust",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -34,3 +31,5 @@
   },
   "description": ""
 }
+
+                                              
