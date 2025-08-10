@@ -25,7 +25,7 @@ const { connected } = require("process");
 const passport = require("passport");
 const localstrategy = require("passport-local");
 const User = require("./models/user.js");
-
+const bookingRoutes = require("./routes/bookingroute.js")
 
 
 
@@ -107,6 +107,7 @@ app.use((req ,res ,next) =>{
 app.use("/listings" , listingsrouter);
 app.use("/listings/:id/reviews" , reviewsrouter);
 app.use("/", userrouter);
+
 
 
      app.all("*" ,(req ,res, next) =>{

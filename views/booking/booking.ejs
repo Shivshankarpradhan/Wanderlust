@@ -1,0 +1,71 @@
+
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+  <div class="all-listing-page min-vh-100">
+    <h2 class="mt-3 mb-4 all-listings-heading text-center">
+      Your Booked Listings
+    </h2>
+
+    <% if (bookings.length > 0) { %>
+    <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+      <% for (let booking of bookings) { 
+        const now = new Date();
+        const checkInDate = new Date(booking.checkIn);
+        const oneDayBeforeCheckIn = new Date(checkInDate);
+        oneDayBeforeCheckIn.setDate(checkInDate.getDate() - 1);
+      %>
+
+      <div class="col">
+        <div class="card listing-card h-100 relative booking-card">
+          <div class="card-img-wrapper">
+            <img
+              src="<%= booking.listing.image.url %>"
+              alt="listing_image"
+              class="card-img-top img-fluid"
+            />
+          </div>
+
+          <div class="card-body listing-card-body">
+            <p class="card-text listing-card-text">
+              <b><%= booking.listing.title %></b><br />
+              ₹<%= booking.listing.price.toLocaleString("en-IN") %>/ night
+            </p>
+            <p class="listing-info">
+              📍 <%= booking.listing.location %>, <%= booking.listing.country %>
+            </p>
+            <p class="mb-1" style="color: #0066cc">
+              📅 <strong>Check-in:</strong>
+              <%= booking.checkIn ? new Date(booking.checkIn).toLocaleDateString("en-GB") : "Not available" %>
+            </p>
+            <p class="mb-2" style="color: #cc3300">
+              📅 <strong>Check-out:</strong>
+              <%= booking.checkOut ? new Date(booking.checkOut).toLocaleDateString("en-GB") : "Not available" %>
+            </p>
+
+            <% if (now < oneDayBeforeCheckIn) { %>
+              <form
+                method="POST"
+                action="/bookings/<%= booking._id %>?_method=DELETE"
+                onsubmit="return confirm('Are you sure you want to cancel this booking?');"
+              >
+                <button class="btn btn-danger btn-sm">Cancel Booking</button>
+              </form>
+            <% } else { %>
+              <button
+                class="btn btn-secondary btn-sm"
+                style="opacity: 0.6; cursor: not-allowed;"
+                onclick="alert('Now you can not delete this booking. Cancellation must be at least 1 day before check-in.')"
+              >
+                Cancel Booking
+              </button>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <% } else { %>
+    <p class="no-lisitng-found-para text-center">No bookings yet</p>
+    <% } %>
+  </div>
+</body>

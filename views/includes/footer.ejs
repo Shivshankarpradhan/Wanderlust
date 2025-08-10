@@ -1,16 +1,75 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-        <i class="fa-brands fa-square-facebook"></i>
-        <i class="fa-brands fa-square-instagram"></i>
-        <i class="fa-brands fa-square-twitter"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        </div>
+<style>
+  footer {
+    background-color: #f8f9fa;
+    padding: 1.5rem 0;
+    border-top: 1px solid #dee2e6;
+    margin-top: 2rem;
+  }
 
-        <div class="f-info-brand">&copy; WanderLust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-        </div>
+  .f-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .f-info-socials i {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: #6c757d;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+
+  .f-info-socials i:hover {
+    color: #fe424d; /* highlight on hover */
+  }
+
+  .f-info-brand {
+    font-weight: 500;
+    color: #6c757d;
+  }
+
+  .f-info-links a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .f-info-links a:hover {
+    color: #fe424d;
+  }
+
+  @media (min-width: 768px) {
+    .f-info {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>
+
+<footer>
+  <div class="f-info">
+    <div class="f-info-socials">
+      <i class="fa-brands fa-square-facebook"></i>
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-square-twitter"></i>
+      <i class="fa-brands fa-linkedin"></i>
     </div>
+
+    <div class="f-info-brand">&copy; WanderLust Private Limited</div>
+
+    <div class="f-info-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </div>
 </footer>

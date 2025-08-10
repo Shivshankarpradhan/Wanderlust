@@ -1,8 +1,10 @@
+@import "tailwindcss";
 body{
   font-family: "Plus Jakarta Sans", sans-serif !important;
   display:flex;
   flex-direction: column;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 .container{
     flex: 1;
